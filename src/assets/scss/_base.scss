@@ -1,0 +1,90 @@
+:root {
+	--color-primary: #EB5440;
+	/* --color-primary-darker: #dbdbdb; */
+
+	--color-cta: #EB5440;
+	--color-cta-darker: #db3823;
+
+	--color-accent: #D6E5FA;
+	/* --color-accent-darker: #accbf6;
+	--color-accent-lighter: #F1F7FE; */
+
+	--color-secondary: #4A4B4C;
+	/* --color-secondary-darker: #000;
+	--color-secondary-lighter: #022851; */
+
+	--color-tertiary: #E8E8E8;
+	--color-tertiary-darker: #C3C3C3;
+
+	--color-link: #067BC2;
+
+	--color-active: #C4F5FC;
+	--color-error: #d83f3f;
+	--font-size: 1rem;
+
+	--font-color-secondary: #4A4B4C;
+	--font-color: #000;
+
+	--heading-color: #FFF;
+
+  --background-color: #f6f6f6;
+  --background-color-secondary: #fff;
+
+	--font-weight: 300;
+	--spacing-xxs: .25rem;
+	--spacing-xs: .5rem;
+	--spacing-s: 1rem;
+	--spacing-m: 1.5rem;
+	--spacing-l: 2rem;
+	--spacing-xl: 2.5rem;
+	--spacing-xxl: 4rem;
+	--border-radius: 8px;
+	--page-background: #fff;
+	--form-background: #fff;
+	--form-border: 1px solid transparent;
+	--form-column-gap: 1.5rem;
+	--form-row-border: none;
+	--input-height: 4rem;
+	--input-placeholder-color: var(--font-color);
+	--input-padding-bottom: var(--spacing-s);
+	--input-padding: var(--spacing-s) var(--spacing-s) var(--input-padding-bottom) var(--spacing-s);
+	--input-font-size: var(--font-size);
+	--input-color-background: transparent;
+	--input-hover-color: #f1f1f1;
+	--input-border-width: 1px;
+	--input-border-color: var(--heading-color);
+	--input-focus-border-color: var(--color-cta);
+	--input-border: var(--input-border-width) solid var(--input-border-color);
+	--input-border-top: none;
+	--input-border-right: none;
+	--input-border-bottom: var(--input-border-width) solid var(--input-border-color);
+	--input-border-left: none;
+	--input-border-radius: 0;
+	--input-border-secondary: 1px solid var(--color-primary);
+	--input-label-font-size: .75rem;
+	--input-label-color: var(--font-color);
+	--radio-size: 1.25rem;
+	--radio-check-scale: .65;
+	--checkbox-border-radius: 3px;
+	--checkbox-size: 1.25rem;
+	--checkbox-check-scale: 0.7;
+	--input-error-font-size: 1rem;
+	--input-error-color: #ed1c23;
+	--input-error-background: #fefbfb;
+	--content-height: 82vh;
+	--max-width: min(100%, 1440px);
+	--content-max-width: min(100%, 1440px);
+
+	--header-height: 5rem;
+	--header-background: transparent;
+
+	--nav-font-weight: 600;
+
+	--sidemenu-max-width: 22rem;
+	--toc-max-width: 30rem;
+	--menu-collapse-speed: .2s;
+	--header-transition-speed: 0s;
+
+	--section-spacing: 7rem;
+	--active-color: var(--color-accent);
+}

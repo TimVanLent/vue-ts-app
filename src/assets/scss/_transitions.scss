@@ -1,0 +1,19 @@
+
+$speed: .4s;
+
+.view-transition-enter-active {
+  transition: opacity $speed $speed;
+}
+.view-transition-leave-active {
+  transition: opacity $speed;
+}
+
+.view-transition-enter-from,
+.view-transition-leave-to {
+  opacity: 0;
+}
+
+.view-transition-leave-from,
+.view-transition-enter-to {
+  opacity: 1;
+}

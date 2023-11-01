@@ -1,0 +1,117 @@
+$mobile-width: 768px;
+
+body {
+	font-size: 18px;
+	@media (max-width: $mobile-width) {
+		font-size: 12px;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+h1 {
+	font-size: 32px;
+	@media (max-width: $mobile-width) {
+		font-size: 18px;
+	}
+}
+
+h2 {
+	font-size: 22px;
+	@media (max-width: $mobile-width) {
+		font-size: 14px;
+	}
+}
+
+h3 {
+	font-size: 18px;
+	@media (max-width: $mobile-width) {
+		font-size: 12px;
+	}
+}
+
+nav {
+	font-size: 18px;
+}
+
+.empty-state-msg {
+	font-size: 18px;
+	@media (max-width: $mobile-width) {
+		font-size: 14px;
+	}
+}
+
+button, .button {
+	font-size: 18px;
+	@media (max-width: $mobile-width) {
+		font-size: 12px;
+	}
+
+	&--black {
+		font-size: 16px;
+		@media (max-width: $mobile-width) {
+			font-size: 12px;
+		}
+	}
+}
+
+.form-group__error {
+	font-size: 14px;
+	@media (max-width: $mobile-width) {
+		font-size: 12px;
+	}
+}
+
+.house-details__specs {
+	font-size: 14px;
+	@media (max-width: $mobile-width) {
+		font-size: 12px;
+	}
+}
+
+.info-block__description {
+	font-size: 16px;
+	@media (max-width: $mobile-width) {
+		font-size: 12px;
+	}
+}
+
+.form-group__title {
+	font-size: 14px;
+	@media (max-width: $mobile-width) {
+		font-size: 12px;
+	}
+}
+
+input, select, textarea {
+	font-size: 18px;
+	@media (max-width: $mobile-width) {
+		font-size: 12px;
+	}
+}
+
+p {
+	margin: 0;
+	line-height: 1.5;
+}
+
+button {
+	height: 50px;
+	border: 0;
+	background: var(--color-cta);
+	color: #fff;
+	font-weight: 600;
+	border-radius: var(--border-radius);
+	padding: var(--spacing-m);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: background .3s ease;
+
+	&:hover {
+		background: var(--color-cta-darker);
+	}
+}
