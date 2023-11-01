@@ -64,6 +64,7 @@ const handleSubmit = async ({ formData, image }: { formData: HouseFormData; imag
 
 <style scoped lang="scss">
 /* HouseCreateEditView styles */
+$mobile-width: 768px;
 
 .go-back {
   display: flex;
@@ -87,7 +88,7 @@ const handleSubmit = async ({ formData, image }: { formData: HouseFormData; imag
 .house-create-edit-view {
   overflow: auto;
   position: relative;
-  padding: var(--spacing-xl) 0;
+  margin: var(--spacing-xl) 0 0;
 
   &__background {
     background: url(/src/assets/images/img_background@3x.png);
@@ -105,9 +106,12 @@ const handleSubmit = async ({ formData, image }: { formData: HouseFormData; imag
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-l);
     height: 100%;
+    gap: var(--spacing-m);
     max-width: var(--max-width);
+    @media (max-width: $mobile-width) {
+      gap: var(--spacing-xl);
+    }
   }
   &__form {
     z-index: 1;

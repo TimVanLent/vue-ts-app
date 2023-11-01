@@ -101,7 +101,6 @@ $mobile-width: 768px;
 
 .house-details {
   display: flex;
-  margin: var(--spacing-l) 0;
   flex-direction: row;
   position: relative;
 
@@ -147,7 +146,7 @@ $mobile-width: 768px;
   }
 
   &__img {
-    flex: 2;
+    flex: 1.5;
     width: 100%;
     position: relative;
 
@@ -158,11 +157,7 @@ $mobile-width: 768px;
     img {
       height: 100%;
       width: 100%;
-      object-fit: contain;
-
-      @media (max-width: $mobile-width) {
-        object-fit: cover;
-      }
+      object-fit: cover;
     }
   }
 
@@ -207,6 +202,7 @@ $mobile-width: 768px;
 
       + p {
         margin-left: var(--spacing-xs);
+        white-space: nowrap;
       }
     }
 

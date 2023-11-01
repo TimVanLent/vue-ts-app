@@ -76,7 +76,11 @@ const filteredHouses = computed(() => {
     return allHouses.value;
   } else {
     return allHouses.value.filter((house: House) => {
-      return (house.location.street.toLowerCase() + ' ' + house.location.houseNumber).includes(term);
+      // Combine the street name, city, and zip code into a single string
+      const fullAddress = `${house.location.street} ${house.location.city} ${house.location.postalCode}`;
+
+      // Check if the search term is found in the full address
+      return fullAddress.toLowerCase().includes(term);
     });
   }
 });
@@ -145,7 +149,7 @@ const closeDeleteModal = () => {
 
   overflow: hidden;
   position: relative;
-  margin: var(--spacing-xl) 0;
+  margin: var(--spacing-xl) 0 0;
 
   &__inner {
     width: calc(100% - 2 * var(--spacing-m));
@@ -154,12 +158,13 @@ const closeDeleteModal = () => {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-m);
     overflow: hidden;
     height: 100%;
 
     @media (max-width: $mobile-width) {
       h1 { text-align: center; }
+      gap: var(--spacing-xl);
     }
 
     .house-list {
@@ -167,6 +172,7 @@ const closeDeleteModal = () => {
       display: flex;
       flex-direction: column;
       gap: var(--spacing-m);
+      padding-bottom: var(--spacing-xl);
 
       &--empty {
         display: flex;

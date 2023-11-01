@@ -77,9 +77,9 @@ const closeDeleteModal = () => {
 $mobile-width: 768px;
 
 .details {
-  overflow: hidden;
+  overflow: auto;
   position: relative;
-  margin: var(--spacing-xl) 0;
+  margin: var(--spacing-m) 0 0;
 
   @media (max-width: $mobile-width) {
     flex: 1;
@@ -93,9 +93,9 @@ $mobile-width: 768px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-m);
     height: 100%;
-    overflow: hidden;
+    padding-bottom: var(--spacing-m);
 
     @media (max-width: $mobile-width) {
       width: 100%;
