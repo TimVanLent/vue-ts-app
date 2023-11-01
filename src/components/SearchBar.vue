@@ -49,11 +49,7 @@ const sortType = ref('');
 
 // Handle search input
 const onSearchInput = () => {
-  if (searchTimeout) clearTimeout(searchTimeout);
-
-  searchTimeout = setTimeout(() => {
-    emit('search', searchTerm.value);
-  }, 500);
+  emit('search', searchTerm.value);
 };
 
 // Clear search

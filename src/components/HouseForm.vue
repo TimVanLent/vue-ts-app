@@ -506,6 +506,7 @@ $inputHeight: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: .3s background ease;
 
         &--yes {
           border-radius: 4px 0 0 4px;
