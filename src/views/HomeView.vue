@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, onBeforeUnmount, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 
@@ -55,21 +55,13 @@ const searchTerm = ref('');
 const sortDirection = ref('');
 const store = useStore();
 const router = useRouter();
-
-onMounted(() => {
-  store.dispatch('fetchHouses').then(sortHouseByDate)
-});
-
-const searchHouses = (term: string) => {
-  searchTerm.value = term;
-};
-
-const clearSearch = () => {
-  searchTerm.value = '';
-};
-
 const allHouses = computed(() => store.getters.allHouses);
-
+const circleStyle = ref({
+  top: '0px',
+  left: '0px',
+});
+const showDeleteModal = ref(false);
+let houseToDelete: number | null;
 const filteredHouses = computed(() => {
   const term = searchTerm.value.toLowerCase();
   if (term === '') {
@@ -84,6 +76,29 @@ const filteredHouses = computed(() => {
     });
   }
 });
+
+// Watcher for filteredHouses
+watch(filteredHouses, () => {
+  // reinstall the mousemove event since
+  // the houseCard get rebuild
+  window.removeEventListener('mousemove', mouseMoveHandler);
+  moveCircles();
+});
+
+onMounted(() => {
+  store.dispatch('fetchHouses').then(() => {
+    sortHouseByDate();
+    moveCircles();
+  })
+});
+
+const searchHouses = (term: string) => {
+  searchTerm.value = term;
+};
+
+const clearSearch = () => {
+  searchTerm.value = '';
+};
 
 const sortHouseByDate = () => {
   sortHouses('createdAt');
@@ -123,23 +138,47 @@ const editHouse = (houseId: number) => {
   router.push(`/edit/${houseId}`);
 };
 
-const showDeleteModal = ref(false);
-let houseToDelete: number | null;
-
 const deleteHouse = (houseId: number) => {
   showDeleteModal.value = true;
   // Store the houseId in a data property to use it in the confirmDelete method
   houseToDelete = houseId;
-}
+};
 
 const confirmDelete = () => {
   showDeleteModal.value = false;
   store.dispatch('deleteHouse', houseToDelete);
-}
+};
 
 const closeDeleteModal = () => {
   showDeleteModal.value = false;
-}
+};
+
+let cursorCircles: Array<Element> = [];
+const mouseMoveHandler = (event: Event) => {
+  if (cursorCircles.length) cursorCircles.forEach((el) => {
+    const houseCard = el.closest('.house-card');
+    const x = event.clientX - houseCard.getBoundingClientRect().left - el.getBoundingClientRect().width / 2;
+    const y = event.clientY - houseCard.getBoundingClientRect().top - el.getBoundingClientRect().height / 2;
+
+    // Update the element's style
+    el.style.setProperty('--cursor-y', `${y}px`);
+    el.style.setProperty('--cursor-x', `${x}px`);
+    el.style.setProperty('display', 'block');
+  });
+};
+
+// Function to move the circular cursor
+const moveCircles = () => {
+  // Add the event listener
+  cursorCircles = [...document.querySelectorAll('.cursor-circle')];
+  window.addEventListener('mousemove', mouseMoveHandler);
+  // Remove the event listener when unmounted or destroyed
+};
+
+onBeforeUnmount(() => {
+  window.removeEventListener('mousemove', mouseMoveHandler);
+});
+
 </script>
 
 <style scoped lang="scss">
